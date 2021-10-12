@@ -2,7 +2,7 @@ const express = require('express');
 
 const PORT = process.env.PORT || 3001;
 
-const api = require('./assets/index.js');
+const api = require('./Router/api_routes')
 
 const app = express();
 
@@ -27,6 +27,8 @@ app.get('/index', (req, res) =>
 app.get('/notes', (req, res) =>
   res.sendFile(path.join(__dirname, '/notes.html'))
 );
+
+//POST
 
 
 app.listen(PORT, () =>
