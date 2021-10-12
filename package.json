@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/fons3517/Note_TakerExpress/issues"
   },
-  "homepage": "https://github.com/fons3517/Note_TakerExpress#readme"
+  "homepage": "https://github.com/fons3517/Note_TakerExpress#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
