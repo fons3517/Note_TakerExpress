@@ -1,13 +1,16 @@
+// Requiring express.Router(), file system, and json database
 const app = require('express').Router()
 const fs= require("fs")
 let db= require("../db/db.json");
 
+// GET route for notes
 app.get("/notes",function(req,res){
     db = JSON.parse(fs.readFileSync("./db/db.json","utf-8"))
     console.log("GET",db)
     res.json(db)
 });
 
+// POST notes with random id to body 
 app.post("/notes",function(req,res){
     let newObj = {
         id: Math.floor(Math.random() *1000 )+1,
@@ -23,6 +26,7 @@ app.post("/notes",function(req,res){
     res.json(db)
 });
 
+// DELETE notes 
 app.delete("/notes/:id",function(req,res){
     let updatedNotes = [];
         db.forEach(note => {
@@ -35,6 +39,10 @@ app.delete("/notes/:id",function(req,res){
         if (err) throw err;
         console.log(data)
     });
+    console.log("DELETE",db)
+    res.json(db)
+
 });
 
+//Export app
 module.exports=app;
