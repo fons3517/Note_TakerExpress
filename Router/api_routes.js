@@ -1,17 +1,17 @@
 // Requiring express.Router(), file system, and json database
 const app = require('express').Router();
-const fs= require("fs");
-let db= require("../db/db.json");
+const fs = require("fs");
+let db = require("../db/db.json");
 
 // GET route for notes
-app.get("/notes",function(req,res){
+app.get("/notes",function(req, res){
     db = JSON.parse(fs.readFileSync("./db/db.json","utf-8"));
-    console.log("GET",db);
+    console.log("GET", db);
     res.json(db);
 });
 
 // POST notes with random id to body 
-app.post("/notes",function(req,res){
+app.post("/notes",function(req, res){
     let newObj = {
         id: Math.floor(Math.random() *1000 )+1,
         title: req.body.title,
